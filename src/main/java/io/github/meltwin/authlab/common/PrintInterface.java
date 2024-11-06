@@ -20,7 +20,7 @@ public interface PrintInterface extends Remote {
      * Append the given file in the printer queue
      * @param filename the file to print
      * @param printer the printer to use for this job
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void print(@NotNull String filename, @NotNull String printer) throws RemoteException;
 
@@ -28,15 +28,15 @@ public interface PrintInterface extends Remote {
      * Fetch the queue for the given printer
      * @param printer the printer of interest
      * @return the queue in String format
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     String[] queue(@NotNull String printer) throws RemoteException;
 
     /**
-     * Place the given job at the top of the printer' queue
+     * Place the given job at the top of the printer's queue
      * @param printer the printer to modify
      * @param job the job to move
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void topQueue(@NotNull String printer, int job) throws RemoteException;
 
@@ -48,19 +48,19 @@ public interface PrintInterface extends Remote {
 
     /**
      * Start the printer server
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void start() throws RemoteException;
 
     /**
      * Stop the printer server
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void stop() throws RemoteException;
 
     /**
      * Restart the server. Also clear the print queue.
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void restart() throws RemoteException;
 
@@ -73,8 +73,8 @@ public interface PrintInterface extends Remote {
     /**
      * Return the printer status as a list of strings.
      * @param printer the printer of interest
-     * @return a list of lines to print to the user interface
-     * @throws RemoteException
+     * @return an array of lines to print to the user interface
+     * @throws RemoteException on RMI error
      */
     String[] status(String printer) throws RemoteException;
 
@@ -82,7 +82,7 @@ public interface PrintInterface extends Remote {
      * Fetch the configuration parameter value from the print server
      * @param parameter the parameter name
      * @return the parameter value
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     String readConfig(@NotNull String parameter) throws RemoteException;
 
@@ -90,7 +90,7 @@ public interface PrintInterface extends Remote {
      * Set a configuration parameter value on the server
      * @param parameter the parameter name
      * @param value the value to set
-     * @throws RemoteException
+     * @throws RemoteException on RMI error
      */
     void setConfig(@NotNull String parameter, @NotNull String value) throws RemoteException;
 }
